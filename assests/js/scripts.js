@@ -61,40 +61,40 @@
 // -----------locomotive end ------------------------
 
 
-// function cursorEffect() {
-//     var page1Conent = document.querySelector("#page-1-content");
+function cursorEffect() {
+    var page1Conent = document.querySelector("#page-1-content");
 
-//     var cursor = document.querySelector("#cursor");
+    var cursor = document.querySelector("#cursor");
 
-//     page1Conent.addEventListener("mousemove", (e) => {
-//         // let scrollY = locoScroll.scroll.instance.scroll.y;
-//         // console.log("hhleo illy")
+    page1Conent.addEventListener("mousemove", (e) => {
+        // let scrollY = locoScroll.scroll.instance.scroll.y;
+        // console.log("hhleo illy")
 
-//         gsap.to(cursor, {
-//             x: e.x,
-//             y: e.y,   // + scrollY,
-//             duration: 0.5
-//         })
-//     });
+        gsap.to(cursor, {
+            x: e.x,
+            y: e.y,   // + scrollY,
+            duration: 0.5
+        })
+    });
 
-//     page1Conent.addEventListener("mouseenter", (e) => {
-//         gsap.to(cursor, {
-//             scale: 1,
-//             opacity: 1,
-//             duration: 0.5
-//         })
-//     });
+    page1Conent.addEventListener("mouseenter", (e) => {
+        gsap.to(cursor, {
+            scale: 1,
+            opacity: 1,
+            duration: 0.5
+        })
+    });
 
-//     page1Conent.addEventListener("mouseleave", (e) => {
-//         gsap.to(cursor, {
-//             scale: 0,
-//             opacity: 0,
-//             duration: 0.5
-//         })
-//     });
-// }
+    page1Conent.addEventListener("mouseleave", (e) => {
+        gsap.to(cursor, {
+            scale: 0,
+            opacity: 0,
+            duration: 0.5
+        })
+    });
+}
 
-// cursorEffect();
+cursorEffect();
 
 
 
@@ -117,6 +117,26 @@ function page2Animate(){
 }
 
 page2Animate();
+
+
+function page2BottomAnimate(){
+    gsap.from("#right-part h6,#left-part h6", {
+        y: 100,
+        stagger: 0.2,
+        duration: 1,
+        opacity: 0,
+        scrollTrigger: {
+            trigger: "#part-2-bottom",
+            // scroller: "#main",
+            start: " 70% 50%",
+            end: "50% 50%",
+            // scrub: 1,
+            // markers: true
+        }
+    });
+}
+
+page2BottomAnimate();
 
 
 function cursorEffectPage3() {
@@ -286,32 +306,34 @@ function cursorEffectPage4Right() {
 cursorEffectPage4Right();
 
 
+// $('.slider-nav').css({
+//     'padding':'500px',
+//     'font-size':'500px'
+// })
 
+$(document).ready(function () {
+    $('.owl-carousel').owlCarousel({
+        loop: true,
+        margin: 40,
+        nav: false,
+        autoplay:true,
+        autoplayTimeout: 1500,
+        smartSpeed: 15000,
+        autoplaySpeed:25000,
+        autoplayHoverPause:true,
+        slideTransition: "linear",
+        dots:false,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 2
+            },
+            1000: {
+                items: 3
+            }
+        }
+    })
+})
 
-
-// const container = document.getElementById("part-3-content");
-// const cursor = document.getElementById("part-3-cursor");
-
-// container.addEventListener("mousemove", (e) => {
-//   const rect = container.getBoundingClientRect();
-//   const padding = 32; // 2rem in pixels
-//   const cursorWidth = cursor.offsetWidth;
-//   const cursorHeight = cursor.offsetHeight;
-
-//   // Calculate the new cursor position
-//   let left = e.clientX - rect.left - cursorWidth / 2;
-//   let top = e.clientY - rect.top - cursorHeight / 2;
-
-//   // Constrain the cursor within the container and padding
-//   left = Math.max(padding, Math.min(left, rect.width - cursorWidth - padding));
-//   top = Math.max(padding, Math.min(top, rect.height - cursorHeight - padding));
-
-//   // Update the cursor position
-//   cursor.style.left = `${left}px`;
-//   cursor.style.top = `${top}px`;
-//   cursor.style.display = "block";
-// });
-
-// container.addEventListener("mouseleave", () => {
-//   cursor.style.display = "none";
-// });
