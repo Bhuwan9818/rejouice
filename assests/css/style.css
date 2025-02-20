@@ -621,6 +621,97 @@ li a{
 }
 
 
+/* s----------------sldier code end here -----------  */
+
+
+/* ----------- part-6 start here ------------ */
+
+#part-6{
+    width: 100%;
+    background-color: #fff;
+}
+
+#page-6-wrapper{
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#part-6-h1{
+    padding-left: 3rem;
+}
+
+#part-6-h1 h1{
+    font-size: 4rem;
+    font-weight: 100;
+    color: #000;
+}
+
+/* ---------------- part-7 start here --------- */
+
+.part-7-bottom{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0px 3rem;
+    background-color: #fff;
+    
+}
+
+.part-7-wrapper{
+    width: 100%;
+    border-top: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 0px;
+}
+
+.left-part-7 h6{
+    color: #000;
+    font-size: 1.8vw;
+    font-weight: 100;
+}
+
+.left-part7-wrapper{
+    overflow: hidden;
+}
+
+.right-part-7{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-right: 10%;
+}
+
+h6 span{
+    display: inline-block;
+}
+
+.right-part-7 h6,a{
+    color: #000;
+    font-size: 1.8vw;
+    font-weight: 100 !important;
+}
+
+.right-part7-h6 h6{
+    overflow: hidden;
+}
+
+.hide-span{
+    overflow: hidden;
+}
+
+#extraOne{
+    height: 100vh;
+    width: 100%;
+}
+
+
+
 
 
 

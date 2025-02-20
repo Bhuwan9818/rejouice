@@ -337,3 +337,75 @@ $(document).ready(function () {
     })
 })
 
+
+function breakTheText() {
+
+    var h6 = document.querySelectorAll(".right-part7-h6 h6")
+
+    h6.forEach(co => {
+        var h6Text = co.textContent.trim();
+        var spiltedText = h6Text.split(/\s+/);
+        var clutter = '';
+
+        spiltedText.forEach((val,idx) => {  // forEach loop will work for each value of spiltText(array)
+        
+            if(idx > 0) clutter += " ";
+            
+            clutter += `<span class="hide-span" style="inline-block">
+            <span class='b'>${val}</span></span>` 
+        })
+
+        co.innerHTML = clutter;
+    })
+
+}
+
+breakTheText();
+
+gsap.from("h6 .b",{
+    y:70,
+    duration:.7,
+    delay:0.5,
+    opacity:0,
+    stagger:0.025,  //if we will give the value of stagger in (-ve) it will work as reverse
+    scrollTrigger: {
+        trigger: ".part-7-bottom",
+        start: "50% 50%",
+        end:"50% 50%",
+        markers: true,
+        // scrub: true,
+    }
+})
+
+
+// function breakText() {
+
+//     var h5 = document.querySelector(".right-part8-h6 h6")
+//     var h5Text = h5.textContent
+
+//     var spiltedText = h5Text.split(' ')  // split is  used to split the content on the bases of '' nothing and create an array
+//     var clutter1 = '';
+
+//     // var halfValue = Math.floor(spiltedText.length/2)
+
+//     spiltedText.forEach((val,idx) => {  // forEach loop will work for each value of spiltText(array)
+        
+//         if(idx > 0) clutter1 += " ";
+        
+//         clutter1 += `<span class='a'>${ val } </span>` 
+//     })
+
+//     h5.innerHTML = clutter1;
+
+// }
+
+// breakText();
+
+
+// gsap.from("h6 .a",{
+//     y:50,
+//     duration:.7,
+//     delay:0.5,
+//     opacity:0,
+//     stagger:0.025  //if we will give the value of stagger in (-ve) it will work as reverse
+// })
