@@ -306,11 +306,6 @@ function cursorEffectPage4Right() {
 cursorEffectPage4Right();
 
 
-// $('.slider-nav').css({
-//     'padding':'500px',
-//     'font-size':'500px'
-// })
-
 $(document).ready(function () {
     $('.owl-carousel').owlCarousel({
         loop: true,
@@ -358,54 +353,127 @@ function breakTheText() {
         co.innerHTML = clutter;
     })
 
+
+    gsap.from("h6 .b",{
+        y:70,
+        duration:.7,
+        delay:0.5,
+        opacity:0,
+        stagger:0.025,  //if we will give the value of stagger in (-ve) it will work as reverse
+        scrollTrigger: {
+            trigger: ".part-7-bottom",
+            start: "0% 80%",
+            end:"0% 50%",
+            // markers: true,
+            // scrub: true,
+        }
+    })
+
 }
 
 breakTheText();
 
-gsap.from("h6 .b",{
-    y:70,
-    duration:.7,
-    delay:0.5,
-    opacity:0,
-    stagger:0.025,  //if we will give the value of stagger in (-ve) it will work as reverse
-    scrollTrigger: {
-        trigger: ".part-7-bottom",
-        start: "50% 50%",
-        end:"50% 50%",
-        markers: true,
-        // scrub: true,
-    }
-})
+
+function VideoAnimate(){
+    var tl3 = gsap.timeline({
+        scrollTrigger:{
+            trigger:"#part-8",
+            start:"0% 60%",
+            end:"top top",
+            scrub: 1,
+            // markers:true,
+        }
+    })
+    
+    tl3.from("#video-div video",{
+        scale:1.3,
+        duration: 5,
+        ease:"none",
+    },0)
+    
+    tl3.from("#video-div ",{
+        scale:.7,
+        duration: 5,
+        ease:"none",
+    },0);
+
+}
+
+VideoAnimate();
 
 
-// function breakText() {
 
-//     var h5 = document.querySelector(".right-part8-h6 h6")
-//     var h5Text = h5.textContent
-
-//     var spiltedText = h5Text.split(' ')  // split is  used to split the content on the bases of '' nothing and create an array
-//     var clutter1 = '';
-
-//     // var halfValue = Math.floor(spiltedText.length/2)
-
-//     spiltedText.forEach((val,idx) => {  // forEach loop will work for each value of spiltText(array)
-        
-//         if(idx > 0) clutter1 += " ";
-        
-//         clutter1 += `<span class='a'>${ val } </span>` 
-//     })
-
-//     h5.innerHTML = clutter1;
-
-// }
-
-// breakText();
+function rejouiceAnimate() {
+    var tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: "#main2",
+            // markers: true,
+            start: "50% 50%",
+            end: "150% 50%",
+            scrub: 2,
+            pin: true,
+            ease:"none",
+            pinSpacing:"false",
+        }
+    })
 
 
-// gsap.from("h6 .a",{
-//     y:50,
-//     duration:.7,
-//     delay:0.5,
-//     opacity:0,
-//     stagger:0.025  //if we will give the value of stagger in (-ve) it will work as reverse
-// })
+    tl.to("#main2 #top-last", {
+        top: "-51%",
+    }, "h")
+
+
+    tl.to("#main2 #bottom-last", {
+        bottom: "-51%",
+    }, "h")
+
+    tl.to("#top-last svg", {
+        y: 90,
+    }, "h")
+
+    tl.to("#bottom-last svg", {
+        y: -90,
+    }, "h")
+}
+
+rejouiceAnimate();
+
+function innerRejouiceAnimate() {
+    var tl2 = gsap.timeline({
+        scrollTrigger: {
+            trigger: "#main2",
+            // markers: true,
+            start: "50% 50%",
+            end: "150% 50%",
+            // scrub: false,
+            ease:"none",
+            toggleActions:'play none none reverse',
+            // pin:true,
+
+        }
+    })
+
+
+    tl2.from("#center-one #heading", {
+        x: -50,
+        duration: 2,
+        opacity: 0,
+        delay: 1
+    }, "h")
+
+    tl2.from("#center-one #rahul", {
+        x: 50,
+        duration: 2,
+        opacity: 0,
+        delay: 1
+    }, "h")
+
+    tl2.from("#center-one #img-last-1", {
+        y: 90,
+    }, "h")
+}
+
+innerRejouiceAnimate();
+
+
+
