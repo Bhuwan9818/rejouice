@@ -69,6 +69,10 @@ li a{
     font-size: large;
 }
 
+#svg-big{
+    overflow: hidden;
+}
+
 #svg-big svg{
     width: 90%;
     justify-self: center;

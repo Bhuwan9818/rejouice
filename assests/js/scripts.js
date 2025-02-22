@@ -96,6 +96,22 @@ function cursorEffect() {
 
 cursorEffect();
 
+function page1RejouiceAnimate(){
+    gsap.from("#svg-big svg .letter",{
+        y:-250,
+        stagger: -.16,
+        scrollTrigger:{
+            trigger:"#page-1",
+            start:"50% 60%",
+            end:"50% 50%",
+            // markers:true,
+            // ease:"power1.out",
+        }
+    })
+}
+
+page1RejouiceAnimate();
+
 
 
 
@@ -330,7 +346,7 @@ $(document).ready(function () {
             }
         }
     })
-})
+});
 
 
 function breakTheText() {
@@ -438,43 +454,6 @@ function rejouiceAnimate() {
 
 rejouiceAnimate();
 
-
-function innerRejouiceContentAnimate() {
-    var tl2 = gsap.timeline({
-        scrollTrigger: {
-            trigger: "#main2",
-            // markers: true,
-            start: "50% 50%",
-            end: "150% 50%",
-            // scrub: false,
-            ease: "none",
-            toggleActions: 'play none none reverse',
-            // pin:true,
-
-        }
-    })
-
-
-    tl2.from("#center-one #heading", {
-        x: -50,
-        duration: 2,
-        opacity: 0,
-        delay: 1
-    }, "h")
-
-    tl2.from("#center-one #rahul", {
-        x: 50,
-        duration: 2,
-        opacity: 0,
-        delay: 1
-    }, "h")
-
-    tl2.from("#center-one #img-last-1", {
-        y: 90,
-    }, "h")
-}
-
-innerRejouiceContentAnimate();
 
 
 
