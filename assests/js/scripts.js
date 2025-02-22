@@ -212,7 +212,7 @@ function cursorEffectPage4() {
         // console.log(x)
         let y = e.clientY - rect.top - cursorHeight / 2;
 
-        let constrainedX = Math.max(margin, Math.min(x, rect.width - margin - cursorWidth + 60));
+        let constrainedX = Math.max(margin, Math.min(x, rect.width - margin - cursorWidth));
         let constrainedY = Math.max(margin, Math.min(y, rect.height - margin - cursorHeight));
 
         gsap.to(part4CursorLeft, {
@@ -268,7 +268,7 @@ function cursorEffectPage4Right() {
         // console.log(x)
         let y = e.clientY - rect.top - cursorHeight / 2;
 
-        let constrainedX = Math.max(margin - 50, Math.min(x, rect.width - margin - cursorWidth));
+        let constrainedX = Math.max(margin , Math.min(x, rect.width - margin - cursorWidth));
         let constrainedY = Math.max(margin, Math.min(y, rect.height - margin - cursorHeight));
 
         gsap.to(part4CursorRight, {
@@ -320,10 +320,10 @@ $(document).ready(function () {
         dots: false,
         responsive: {
             0: {
-                items: 1
+                items: 3
             },
             600: {
-                items: 2
+                items: 3
             },
             1000: {
                 items: 3
