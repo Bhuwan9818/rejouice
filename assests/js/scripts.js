@@ -43,7 +43,7 @@
 //         el: document.querySelector("[data-scroll-container]"),
 //         smooth: true
 //     });
-    
+
 //     locoScroll.update();
 // });
 
@@ -99,7 +99,7 @@ cursorEffect();
 
 
 
-function page2Animate(){
+function page2Animate() {
     gsap.from(".elem h3", {
         y: 100,
         stagger: 0.2,
@@ -119,7 +119,7 @@ function page2Animate(){
 page2Animate();
 
 
-function page2BottomAnimate(){
+function page2BottomAnimate() {
     gsap.from("#right-part h6,#left-part h6", {
         y: 100,
         stagger: 0.2,
@@ -128,7 +128,7 @@ function page2BottomAnimate(){
         scrollTrigger: {
             trigger: "#part-2-bottom",
             // scroller: "#main",
-            start: " 70% 50%",
+            start: " 75% 50%",
             end: "50% 50%",
             // scrub: 1,
             // markers: true
@@ -156,9 +156,9 @@ function cursorEffectPage3() {
         // console.log(x)
         let y = e.clientY - rect.top - cursorHeight / 2;
 
-        let constrainedX = Math.max(margin,Math.min(x,rect.width - margin - cursorWidth));
-        let constrainedY = Math.max(margin,Math.min(y,rect.height - margin - cursorHeight));
-        
+        let constrainedX = Math.max(margin, Math.min(x, rect.width - margin - cursorWidth));
+        let constrainedY = Math.max(margin, Math.min(y, rect.height - margin - cursorHeight));
+
         gsap.to(part3Cursor, {
             x: constrainedX,
             y: constrainedY,     // + scrollY,
@@ -173,7 +173,7 @@ function cursorEffectPage3() {
             duration: 0.5,
         });
 
-        gsap.to("#part-3-img img",{
+        gsap.to("#part-3-img img", {
             opacity: .6,
         })
     });
@@ -185,7 +185,7 @@ function cursorEffectPage3() {
             duration: 0.5,
         })
 
-        gsap.to("#part-3-img img",{
+        gsap.to("#part-3-img img", {
             opacity: 1,
         })
     });
@@ -212,9 +212,9 @@ function cursorEffectPage4() {
         // console.log(x)
         let y = e.clientY - rect.top - cursorHeight / 2;
 
-        let constrainedX = Math.max(margin,Math.min(x,rect.width - margin - cursorWidth + 60));
-        let constrainedY = Math.max(margin,Math.min(y,rect.height - margin - cursorHeight));
-        
+        let constrainedX = Math.max(margin, Math.min(x, rect.width - margin - cursorWidth + 60));
+        let constrainedY = Math.max(margin, Math.min(y, rect.height - margin - cursorHeight));
+
         gsap.to(part4CursorLeft, {
             x: constrainedX,
             y: constrainedY,     // + scrollY,
@@ -229,7 +229,7 @@ function cursorEffectPage4() {
             duration: 0.5,
         });
 
-        gsap.to("#part-4-img-left img",{
+        gsap.to("#part-4-img-left img", {
             opacity: .6,
         })
     });
@@ -241,7 +241,7 @@ function cursorEffectPage4() {
             duration: 0.5,
         })
 
-        gsap.to("#part-4-img-left img",{
+        gsap.to("#part-4-img-left img", {
             opacity: 1,
         })
     });
@@ -268,9 +268,9 @@ function cursorEffectPage4Right() {
         // console.log(x)
         let y = e.clientY - rect.top - cursorHeight / 2;
 
-        let constrainedX = Math.max(margin - 50,Math.min(x,rect.width - margin - cursorWidth));
-        let constrainedY = Math.max(margin,Math.min(y,rect.height - margin - cursorHeight));
-        
+        let constrainedX = Math.max(margin - 50, Math.min(x, rect.width - margin - cursorWidth));
+        let constrainedY = Math.max(margin, Math.min(y, rect.height - margin - cursorHeight));
+
         gsap.to(part4CursorRight, {
             x: constrainedX,
             y: constrainedY,     // + scrollY,
@@ -285,7 +285,7 @@ function cursorEffectPage4Right() {
             duration: 0.5,
         });
 
-        gsap.to("#part-4-img-right img",{
+        gsap.to("#part-4-img-right img", {
             opacity: .6,
         })
     });
@@ -297,7 +297,7 @@ function cursorEffectPage4Right() {
             duration: 0.5,
         })
 
-        gsap.to("#part-4-img-right img",{
+        gsap.to("#part-4-img-right img", {
             opacity: 1,
         })
     });
@@ -311,13 +311,13 @@ $(document).ready(function () {
         loop: true,
         margin: 40,
         nav: false,
-        autoplay:true,
+        autoplay: true,
         autoplayTimeout: 1500,
         smartSpeed: 15000,
-        autoplaySpeed:25000,
-        autoplayHoverPause:true,
+        autoplaySpeed: 25000,
+        autoplayHoverPause: true,
         slideTransition: "linear",
-        dots:false,
+        dots: false,
         responsive: {
             0: {
                 items: 1
@@ -342,28 +342,28 @@ function breakTheText() {
         var spiltedText = h6Text.split(/\s+/);
         var clutter = '';
 
-        spiltedText.forEach((val,idx) => {  // forEach loop will work for each value of spiltText(array)
-        
-            if(idx > 0) clutter += " ";
-            
+        spiltedText.forEach((val, idx) => {  // forEach loop will work for each value of spiltText(array)
+
+            if (idx > 0) clutter += " ";
+
             clutter += `<span class="hide-span" style="inline-block">
-            <span class='b'>${val}</span></span>` 
+            <span class='b'>${val}</span></span>`
         })
 
         co.innerHTML = clutter;
     })
 
 
-    gsap.from("h6 .b",{
-        y:70,
-        duration:.7,
-        delay:0.5,
-        opacity:0,
-        stagger:0.025,  //if we will give the value of stagger in (-ve) it will work as reverse
+    gsap.from("h6 .b", {
+        y: 70,
+        duration: .7,
+        // delay: 0.5,
+        opacity: 0,
+        stagger: 0.025,  //if we will give the value of stagger in (-ve) it will work as reverse
         scrollTrigger: {
             trigger: ".part-7-bottom",
             start: "0% 80%",
-            end:"0% 50%",
+            end: "0% 50%",
             // markers: true,
             // scrub: true,
         }
@@ -374,28 +374,28 @@ function breakTheText() {
 breakTheText();
 
 
-function VideoAnimate(){
+function VideoAnimate() {
     var tl3 = gsap.timeline({
-        scrollTrigger:{
-            trigger:"#part-8",
-            start:"0% 60%",
-            end:"top top",
+        scrollTrigger: {
+            trigger: "#part-8",
+            start: "0% 60%",
+            end: "top top",
             scrub: 1,
             // markers:true,
         }
     })
-    
-    tl3.from("#video-div video",{
-        scale:1.3,
+
+    tl3.from("#video-div video", {
+        scale: 1.3,
         duration: 5,
-        ease:"none",
-    },0)
-    
-    tl3.from("#video-div ",{
-        scale:.7,
+        ease: "none",
+    }, 0)
+
+    tl3.from("#video-div ", {
+        scale: .7,
         duration: 5,
-        ease:"none",
-    },0);
+        ease: "none",
+    }, 0);
 
 }
 
@@ -412,8 +412,8 @@ function rejouiceAnimate() {
             end: "150% 50%",
             scrub: 2,
             pin: true,
-            ease:"none",
-            pinSpacing:"false",
+            ease: "none",
+            pinSpacing: "false",
         }
     })
 
@@ -438,7 +438,8 @@ function rejouiceAnimate() {
 
 rejouiceAnimate();
 
-function innerRejouiceAnimate() {
+
+function innerRejouiceContentAnimate() {
     var tl2 = gsap.timeline({
         scrollTrigger: {
             trigger: "#main2",
@@ -446,8 +447,8 @@ function innerRejouiceAnimate() {
             start: "50% 50%",
             end: "150% 50%",
             // scrub: false,
-            ease:"none",
-            toggleActions:'play none none reverse',
+            ease: "none",
+            toggleActions: 'play none none reverse',
             // pin:true,
 
         }
@@ -473,7 +474,30 @@ function innerRejouiceAnimate() {
     }, "h")
 }
 
-innerRejouiceAnimate();
+innerRejouiceContentAnimate();
+
+
+
+function InnerrejouiceAnimate() {
+    gsap.from("#last-div-of-svg svg .letter", {
+        y: -250,
+        duration: 2,
+        delay: 1,
+        stagger: -.4,
+        scrollTrigger: {
+            trigger: "#center-last-bottom",
+            start: "90% 50%",
+            end: "50% 0%",
+            ease: "none",
+            scrub: 2,
+            // markers: true,
+        }
+    })
+}
+
+InnerrejouiceAnimate();
+
+
 
 
 
