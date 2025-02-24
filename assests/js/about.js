@@ -26,6 +26,13 @@ function locomotiveFunction() {
 
     locoScroll.on("scroll", ScrollTrigger.update);
 
+    document.addEventListener("DOMContentLoaded",function(){
+        setTimeout(()=>{
+            locoScroll.update();
+            ScrollTrigger.refresh();
+        },500);
+    })
+
 
     // each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll. 
     ScrollTrigger.addEventListener("refresh", () => locoScroll.update());

@@ -1,14 +1,17 @@
 
 gsap.registerPlugin(ScrollTrigger);
 
+// document.addEventListener("DOMContentLoaded",function(){
+//     let scrollContainer = document.querySelector("[data-scroll-container]");
+// }) 
+
 // Using Locomotive Scroll from Locomotive https://github.com/locomotivemtl/locomotive-scroll
 
 const locoScroll = new LocomotiveScroll({
     el: document.querySelector("[data-scroll-container]"),
     smooth: true,
-    lerp: .09
+    // lerp: .09
 });
-
 // each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
 locoScroll.on("scroll", ScrollTrigger.update);
 
@@ -28,8 +31,123 @@ ScrollTrigger.scrollerProxy("[data-scroll-container]", {
 // each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll. 
 ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
 
-// after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
+window.onload = function(){
+    setTimeout(() => {
+        locoScroll.scrollTo(0,{duration:0,disableLerp:true});
+    }, 100);
+}
+
+
+
+setTimeout(() => {
+    if(document.querySelector("[data-scroll-container]").style.transform === ''){
+        document.body.style.overflow="auto";
+    }
+}, 1000);
+
 ScrollTrigger.refresh();
+
+
+
+// Store reference in a separate object to survive hard reloads
+const _APP_STATE_ = window._APP_STATE_ || {
+    locoScroll: null,
+    isInitializing: false
+  };
+  window._APP_STATE_ = _APP_STATE_;
+  
+  function initSmoothScroll() {
+    // Cleanup previous instance
+    if (_APP_STATE_.locoScroll) {
+      _APP_STATE_.locoScroll.destroy();
+      console.log('♻️ Destroyed previous scroll instance');
+    }
+  
+    const scrollContainer = document.querySelector('[data-scroll-container]');
+    if (!scrollContainer) {
+      console.error('❌ Scroll container not found!');
+      return;
+    }
+  
+    // ✅ Initialize Locomotive Scroll
+    try {
+      _APP_STATE_.locoScroll = new LocomotiveScroll({
+        el: scrollContainer,
+        smooth: true,
+        smartphone: { smooth: true },
+        tablet: { smooth: true }
+      });
+  
+      console.log('✅ Locomotive Scroll initialized');
+  
+    } catch (error) {
+      console.error('💥 Scroll initialization failed:', error);
+      return;
+    }
+  
+    // ✅ Correct scrollerProxy so ScrollTrigger measures correctly
+    ScrollTrigger.scrollerProxy(scrollContainer, {
+      scrollTop(value) {
+        return arguments.length 
+          ? _APP_STATE_.locoScroll.scrollTo(value, { duration: 0, disableLerp: true }) 
+          : _APP_STATE_.locoScroll.scroll.instance.scroll.y;
+      },
+      getBoundingClientRect() {
+        return {
+          top: 0,
+          left: 0,
+          width: window.innerWidth,
+          height: window.innerHeight
+        };
+      },
+      pinType: scrollContainer.style.transform ? "transform" : "fixed"
+    });
+  
+    // ✅ Sync ScrollTrigger updates with Locomotive Scroll
+    _APP_STATE_.locoScroll.on("scroll", () => {
+      ScrollTrigger.update();
+    });
+  
+    // ✅ Ensure ScrollTrigger refreshes AFTER Locomotive Scroll initializes
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+      console.log('🔄 ScrollTrigger refreshed');
+    }, 300); // Small delay ensures correct viewport positioning
+  }
+  
+  // *2️⃣ Properly Initialize Everything*
+  function handleAppInit() {
+    if (_APP_STATE_.isInitializing) return;
+    _APP_STATE_.isInitializing = true;
+  
+    if (document.readyState === 'complete') {
+      initSmoothScroll();
+    } else {
+      document.addEventListener('DOMContentLoaded', initSmoothScroll);
+    }
+  
+    window.addEventListener('load', () => {
+      if (!_APP_STATE_.locoScroll?.isActive) {
+        console.log('🔁 Reinitializing after hard reload');
+        initSmoothScroll();
+      }
+    });
+  
+    // ✅ Resize Handling for Correct Scroll Measurements
+    const resizeObserver = new ResizeObserver(() => {
+      _APP_STATE_.locoScroll?.update();
+      ScrollTrigger.refresh();
+    });
+    resizeObserver.observe(document.documentElement);
+  }
+  
+  // *3️⃣ Start App Initialization*
+  if (typeof LocomotiveScroll !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    handleAppInit();
+  } else {
+    console.error('⚠️ Locomotive Scroll or ScrollTrigger not loaded! Check script order:');
+  }
+
 
 
 
@@ -41,7 +159,7 @@ function rejouiceAnimate() {
         scrollTrigger: {
             trigger: "#main2",
             scroller: "[data-scroll-container]",
-            // markers: true,
+            markers: true,
             start: "50% 50%",
             end: "150% 50%",
             scrub: 2,
@@ -88,7 +206,7 @@ function InnerrejouiceAnimate() {
             end: "50% 0%",
             ease: "none",
             scrub: 2,
-            // markers: true,
+            markers: true,
         }
     })
 }
