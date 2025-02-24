@@ -1,0 +1,249 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+html,body {
+    height: 100%;
+    overflow: hidden;
+}
+
+[data-scroll-container]{
+    overflow: hidden;
+}
+
+
+body{
+    font-family: 'Syne', sans-serif;
+    background-color: transparent;
+}
+
+nav svg{
+    width: 7vw;
+    color: rgb(0, 0, 0);
+    /* mix-blend-mode: difference; */
+    cursor: pointer;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 1.5rem;
+    position: fixed;
+    width: 100%;
+    z-index: 10000;
+    background-color: #ffffff46;
+    backdrop-filter: blur(7px);
+}
+
+ul{
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+li a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    /* mix-blend-mode: difference; */
+    font-size: large;
+}
+
+/* --------------- nav bar ends ---------------  */
+
+/* ----------- part-1 start here --------------- */
+
+
+#part-1{
+    width: 100%;
+    background-color: #fff;
+    padding-top: 2rem;
+    display: flex;
+    align-items: flex-end;
+    height: 80vh;
+}
+
+#page-1-content{
+    width: 100%;
+    /* height: 100%; */
+    background-color: #ffffff;
+    padding: 4rem 3rem;
+    z-index: 3;
+    position: relative;
+    /* display: flex;
+    justify-content: center;
+    align-self: flex-end; */
+}
+
+#page-1-content h6{
+    color: #000000;
+    font-size: 4vw;
+    font-weight: 100;
+    /* opacity: 0.9; */
+    font-stretch: 120%;
+}
+
+.elem{
+    overflow: hidden;
+}
+
+#elem-1{
+    display: flex;
+    justify-self: flex-end;
+}
+
+
+/* ----------- part-2 css -------------  */
+
+#part-2{
+    width: 100%;
+}
+
+#part-2-wrapper{
+    width: 100%;
+    padding: 2vw 3rem;
+}
+
+#page-2-content{
+    width: 100%;
+    padding: 2vw 0px;
+    border-top: 1px solid black;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 2vw;
+}
+
+#page-2-right{
+    display: flex;
+    flex-direction: column;
+    gap: 3vw;
+}
+
+#page-2-right-h6{
+    font-size: 1.5rem;
+    font-weight: 100;
+    color: #000;
+}
+
+#page-2-right p{
+    font-size: 1.5rem;
+    font-weight: 100;
+}
+
+.right-span{
+    display: flex;
+    gap: 1rem;
+}
+
+#page-2-left p{
+    font-size: 1.5rem;
+    font-weight: 100;
+}
+
+.page-2-right-p{
+    width: 70%;
+}
+
+/* ------------- part-3 start ------------------  */
+
+
+#part-3{
+    width: 100%;
+    
+}
+
+#page-3-wrapper{
+    padding-top: 10rem;
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+}
+
+#page-3-content h1{
+    font-size: 25vw;
+    font-weight: 100;
+    color: #000;
+}
+
+/* --------------- video part ---------------  */
+
+#part-8{
+    width: 100%;
+    background-color: #fff;
+}
+
+#part-8-wrapper{
+    width: 100%;
+    background-color: #fff;
+    padding: 5rem 0px;
+}
+
+#video-div{
+    width: 100%;
+    height: 100%;
+    padding: 3rem 3vw;
+    overflow: hidden;
+}
+
+#video-div video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* -------------- part-7 starts ------------------  */
+
+
+#part-7{
+    width: 100%;
+    background-color: #fff;
+    padding-top: 2rem;
+    display: flex;
+    align-items: flex-end;
+    height: 80vh;
+}
+
+#page-7-content{
+    width: 100%;
+    /* height: 100%; */
+    background-color: #ffffff;
+    padding: 4rem 3rem;
+    z-index: 3;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-self: flex-end;
+}
+
+#page-7-content h6{
+    color: #000000;
+    font-size: 4vw;
+    font-weight: 100;
+    /* opacity: 0.9; */
+    font-stretch: 120%;
+}
+
+
+#ele-2{
+    display: flex;
+    justify-self: flex-end;
+}
+
+#page-7-content h6{
+    overflow: hidden;
+}
+
+.hide-span{
+    overflow: hidden;
+}
+
+h6 .b{
+    position: relative;
+}
