@@ -151,15 +151,12 @@ const _APP_STATE_ = window._APP_STATE_ || {
 
 
 
-
-
-
 function rejouiceAnimate() {
     var tl = gsap.timeline({
         scrollTrigger: {
             trigger: "#main2",
             scroller: "[data-scroll-container]",
-            markers: true,
+            // markers: true,
             start: "50% 50%",
             end: "150% 50%",
             scrub: 2,
@@ -206,7 +203,7 @@ function InnerrejouiceAnimate() {
             end: "50% 0%",
             ease: "none",
             scrub: 2,
-            markers: true,
+            // markers: true,
         }
     })
 }
